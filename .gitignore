@@ -1,0 +1,6 @@
+__pycache__/
+*.class
+*.exe
+*.out
+*.log
+bin/
