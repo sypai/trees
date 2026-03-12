@@ -1,5 +1,7 @@
 from implementations.python.tree_node import TreeNode
 from patterns.traversals.preorder_dfs_iterative import dfs_preorder, dfs_preorder_deque
+from patterns.traversals.preorder_dfs_recursive import preorder
+from patterns.traversals.bfs import bfs
 
 
 def build_sample_tree():
@@ -23,3 +25,7 @@ def build_sample_tree():
 if __name__ == "__main__":
     root = build_sample_tree()
     dfs_preorder_deque(root)
+    print("-=--")
+    preorder(root)
+    print("==========")
+    bfs(root)
