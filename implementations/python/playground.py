@@ -2,7 +2,7 @@ from implementations.python.tree_node import TreeNode
 from patterns.traversals.preorder_dfs_iterative import dfs_preorder, dfs_preorder_deque
 from patterns.traversals.preorder_dfs_recursive import preorder
 from patterns.traversals.bfs import bfs
-
+from problems.algoexpert.easy.node_depths import node_depths
 
 def build_sample_tree():
     """
@@ -21,11 +21,32 @@ def build_sample_tree():
 
     return root
 
+def build_sample_tree_1():
+    """
+            1
+            /\
+            2 3
+            /\ /\
+           4 5 6 7
+          /\
+          8 9
+    """
+    root = TreeNode(1)
+    root.left = TreeNode(2)
+    root.right = TreeNode(3)
+    root.left.left = TreeNode(4)
+    root.left.right =TreeNode(5)
+    root.right.left = TreeNode(6)
+    root.right.right = TreeNode(7)
+    root.left.left.left = TreeNode(8)
+    root.left.left.right = TreeNode(9)
+    return root
 
 if __name__ == "__main__":
-    root = build_sample_tree()
-    dfs_preorder_deque(root)
-    print("-=--")
-    preorder(root)
-    print("==========")
-    bfs(root)
+    root = build_sample_tree_1()
+    # dfs_preorder_deque(root)
+    # print("-=--")
+    # preorder(root)
+    # print("==========")
+    # bfs(root)
+    print(node_depths(root))
