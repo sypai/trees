@@ -3,6 +3,7 @@ from patterns.traversals.preorder_dfs_iterative import dfs_preorder, dfs_preorde
 from patterns.traversals.preorder_dfs_recursive import preorder
 from patterns.traversals.bfs import bfs
 from problems.algoexpert.easy.node_depths import node_depths
+from problems.algoexpert.medium.invert_bt import invert
 
 def build_sample_tree():
     """
@@ -42,6 +43,14 @@ def build_sample_tree_1():
     root.left.left.right = TreeNode(9)
     return root
 
+def inorder(node):
+    if node is None: 
+        return
+    inorder(node.left)
+    print(node.val)
+    inorder(node.right)
+
+
 if __name__ == "__main__":
     root = build_sample_tree_1()
     # dfs_preorder_deque(root)
@@ -49,4 +58,6 @@ if __name__ == "__main__":
     # preorder(root)
     # print("==========")
     # bfs(root)
-    print(node_depths(root))
+    inorder(root)
+    invert(root)
+    inorder(root)
