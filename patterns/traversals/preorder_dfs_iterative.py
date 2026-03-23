@@ -65,3 +65,4 @@ def dfs_preorder_deque(root):
 
         if node.left:
             stack.append(node.left)
+    
