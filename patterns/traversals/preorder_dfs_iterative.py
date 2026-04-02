@@ -40,7 +40,7 @@ def dfs_preorder(node):
     stack = []
     stack.append(node)
 
-    while len(stack) > 0: # is stock non-empty
+    while len(stack) > 0: # is stack non-empty
         node = stack.pop()
         print(node.val)
         if node.right:
