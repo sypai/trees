@@ -60,5 +60,17 @@ def cleanedUpClosestToBST(root, target):
     dfs(root)
     return closest[1]
 
-closestToBST(root, 0)
+# Option 4 — iterative, no global state at all
+def closestBST(root, target):
+    closest = root.val
+    while root:
+        if abs(root.val - target) < abs(closest - target):
+            closest = root.val
+        if target < root.val:
+            root = root.left
+        elif target > root.val:
+            root = root.right
+        else:
+            return root.val
+    return closest
 
