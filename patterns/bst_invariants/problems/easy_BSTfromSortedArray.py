@@ -1,7 +1,7 @@
 def construct(nums):
     size = len(nums)
     if size == 0:
-        return
+        return None
     mid = size // 2
     root = TreeNode(nums[mid])
 
