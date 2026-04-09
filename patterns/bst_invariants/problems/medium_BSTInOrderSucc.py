@@ -1,25 +1,27 @@
 def inorderSuccessor(root, node):
-    if not root:
-        return None
-    
     successor = None
-
+    
     while root:
-        if root is node:
+        if node.val < root.val:
+            # Current root is a potential successor because it's larger than node
+            successor = root
+            root = root.left
+        elif node.val > root.val:
+            # Current root is smaller, so successor must be in the right subtree
+            # We do NOT reset successor to None here
+            root = root.right
+        else:
+            # We found the node!
             if root.right:
+                # If there's a right child, the successor is the leftmost node of that subtree
                 current = root.right
                 while current.left:
                     current = current.left
                 return current
             else:
+                # If no right child, the last 'left turn' we took is the successor
                 return successor
-        else:
-            if root.val > node.val:
-                successor = root
-                root = root.left
-            else:
-                successor = None
-                root = root.right
+                
     return successor
 
 """
